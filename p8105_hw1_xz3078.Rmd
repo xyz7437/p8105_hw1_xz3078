@@ -3,4 +3,56 @@ title: "p8105_hw1_xz3078"
 output: html_document
 ---
 
+# Problem 1
+
+```{r include = FALSE}
+library(tidyverse)
+```
+
+```{r}
+x = rnorm(10)
+df = tibble(
+  vec_numeric = x,
+  vec_logical = x > 0,
+  vec_char = c("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"),
+  vec_factor = factor(c("Group1", "Group1", "Group3", "Group2", "Group1", "Group3", "Group2", "Group2", "Group3", "Group2"))
+)
+df
+
+num = pull(df, vec_numeric)
+mean(num)
+
+logical = pull(df, vec_logical)
+mean(logical)
+
+char = pull(df, vec_char)
+mean(char)
+
+fac = pull(df, vec_factor)
+mean(fac)
+
+```
+
+The mean works for numeric variables and logical variables, but doesn't work for character variables or factor variables. 
+
+```{r eval = FALSE}
+as.numeric(logical)
+as.numeric(char)
+as.numeric(fac)
+```
+
+Logical variables can be converted into 0 and 1 because logical variables contain values of either TRUE or FALSE. 3-level factor variable can be converted into 1, 2, and 3 because factor variables separate unique values into levels. Therefore, factor variables can be converted into numeric variables based on levels. However, character variables cannot be converted into numeric variables because character variables are sets of text strings. We can only take the mean of numeric or logical variables. Although factor variables can be converted into numeric variables, we cannot directly take the mean of a factor variable. 
+
+# Problem 2
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+In the penguins dataset, the variable names are `r colnames(penguins)`. There are `r nlevels(pull(penguins, species))` levels under factor `r colnames(penguins)[1]`, which are `r levels(pull(penguins, species))`. There are `r nlevels(pull(penguins, island))` levels under factor `r colnames(penguins)[2]`, which are `r levels(pull(penguins, island))`. The `r colnames(penguins)[8]` are `r unique(pull(penguins, year))`. 
+The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(as.numeric(pull(penguins, flipper_length_mm)), na.rm=TRUE)`mm. 
+
+```{r warning=FALSE}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+
+```
 
