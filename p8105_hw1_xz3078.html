@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Xinyi Zhou" />
 
 
 <title>p8105_hw1_xz3078</title>
@@ -164,6 +165,7 @@ pre code {
 
 
 <h1 class="title toc-ignore">p8105_hw1_xz3078</h1>
+<h4 class="author">Xinyi Zhou</h4>
 
 </div>
 
@@ -181,22 +183,22 @@ df</code></pre>
 <pre><code>## # A tibble: 10 x 4
 ##    vec_numeric vec_logical vec_char vec_factor
 ##          &lt;dbl&gt; &lt;lgl&gt;       &lt;chr&gt;    &lt;fct&gt;     
-##  1    -0.403   FALSE       One      Group1    
-##  2    -0.663   FALSE       Two      Group1    
-##  3     0.275   TRUE        Three    Group3    
-##  4    -1.46    FALSE       Four     Group2    
-##  5    -0.0177  FALSE       Five     Group1    
-##  6    -0.409   FALSE       Six      Group3    
-##  7     1.39    TRUE        Seven    Group2    
-##  8     0.605   TRUE        Eight    Group2    
-##  9     0.00994 TRUE        Nine     Group3    
-## 10    -0.0706  FALSE       Ten      Group2</code></pre>
+##  1      0.403  TRUE        One      Group1    
+##  2     -0.263  FALSE       Two      Group1    
+##  3      0.465  TRUE        Three    Group3    
+##  4      0.659  TRUE        Four     Group2    
+##  5      0.928  TRUE        Five     Group1    
+##  6      0.329  TRUE        Six      Group3    
+##  7      2.33   TRUE        Seven    Group2    
+##  8      1.74   TRUE        Eight    Group2    
+##  9     -0.0589 FALSE       Nine     Group3    
+## 10     -0.956  FALSE       Ten      Group2</code></pre>
 <pre class="r"><code>num = pull(df, vec_numeric)
 mean(num)</code></pre>
-<pre><code>## [1] -0.07404841</code></pre>
+<pre><code>## [1] 0.5576115</code></pre>
 <pre class="r"><code>logical = pull(df, vec_logical)
 mean(logical)</code></pre>
-<pre><code>## [1] 0.4</code></pre>
+<pre><code>## [1] 0.7</code></pre>
 <pre class="r"><code>char = pull(df, vec_char)
 mean(char)</code></pre>
 <pre><code>## Warning in mean.default(char): argument is not numeric or logical: returning NA</code></pre>

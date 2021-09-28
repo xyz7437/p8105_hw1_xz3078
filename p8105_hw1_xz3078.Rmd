@@ -1,5 +1,6 @@
 ---
 title: "p8105_hw1_xz3078"
+author: Xinyi Zhou
 output: html_document
 ---
 
